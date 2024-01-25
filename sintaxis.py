@@ -14,7 +14,7 @@ a='Mi banda es \n favorita es'
 b="Es marrano"
 print(a+b)
 print(a, b)
-
+#Hola
 #contar caracteres 
 print(len(a))
 print(b[2:5])
