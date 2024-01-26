@@ -6,6 +6,10 @@ comentador
 de varias 
 lineas 
 '''
+
+
+
+
 #Cadenas 
 """print('Soy una cadena')
 print("Soy otra cadena")"""
@@ -54,7 +58,7 @@ print(10!=9)"""
 x=1
 print(x<5 and x<10)
 print(x<5 or x<10)
-print(not (x<5 and x<10))
+print(not (x<5 and x<10)) 
 
 
 print(x<5 & x<10)
