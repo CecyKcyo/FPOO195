@@ -7,7 +7,7 @@ D 100 significa que depositó 100 pesos
 R 50 significa que retiró 50 pesos
 Introducir una línea vacía indica que ha finalizado la bitácora e imprime el saldo
 final'''
-saldo = 0
+saldo = 1500
 while True:
     operacion = input("Introduce la operación (D para depósito, R para retiro): ")
     if operacion == "":
