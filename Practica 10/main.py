@@ -28,16 +28,18 @@ def main():
             id_usuario = int(input("Ingrese el ID del usuario a consultar: "))
             usuario = crud.consultar_usuario(id_usuario)
             if usuario:
-                print(f"ID: {usuario.id}, Nombre: {usuario.nombre}")
-                # Imprimir otros detalles del usuario
+                print(f"ID: {usuario.get_id()}, Nombre: {usuario.getnombre()}, Apellido P: {usuario.getapellido_p()}, Apellido M: {usuario.getapellido_m()}, Correo: {usuario.get_correo()}")
             else:
                 print("Usuario no encontrado.")
 
         elif opcion == '3':
             id_usuario = int(input("Ingrese el ID del usuario a actualizar: "))
-            nuevo_nombre = input("Ingrese el nuevo nombre del usuario: ")
-            # Pedir otros datos si se desea actualizar más campos
-            if crud.actualizar_usuario(id_usuario, nombre=nuevo_nombre):
+            nombre = input("Ingrese el nuevo nombre del usuario: ")
+            apellido_p = input("Ingrese el nuevo apellido paterno del usuario: ")
+            apellido_m = input("Ingrese el nuevo apellido materno del usuario: ")
+            correo = input("Ingrese el nuevo correo electrónico del usuario: ")
+            contrasena = input("Ingrese la nueva contraseña del usuario: ")
+            if crud.actualizar_usuario(id_usuario, nombre=nombre, apellido_p=apellido_p, apellido_m=apellido_m, correo=correo, contrasena=contrasena):
                 print("Usuario actualizado exitosamente.")
             else:
                 print("Usuario no encontrado.")
