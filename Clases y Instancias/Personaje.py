@@ -1,24 +1,41 @@
-# Definición de la clase Personaje
+# Archivo personaje.py
+
 class Personaje:
     
-    # Constructor de la clase Personaje. Este método se llama automáticamente al crear un nuevo objeto.
-    # Inicializa los atributos del personaje con los valores proporcionados.
-    def __init__(self, esp, nom, alt):
-        # Asignación de valores a los atributos de instancia del objeto.
-        self.especie = esp  # Asigna el valor de 'esp' al atributo 'especie'.
-        self.nombre = nom  # Asigna el valor de 'nom' al atributo 'nombre'.
-        self.altura = alt  # Asigna el valor de 'alt' al atributo 'altura'.
+    #atributo de personaje
+    #Declaramos el constructor
     
-    # Método de instancia 'correr' que define una acción del personaje.
-    def correr(self, estado):
-        if(estado):  # Si 'estado' es True, el personaje puede correr.
-            # Imprime que el personaje está corriendo.
-            print("El personaje "+ self.nombre +" esta corriendo")
-        else:  # Si 'estado' es False, el personaje no puede correr (está muerto).
-            # Imprime que el personaje está muerto y no puede correr.
-            print("El personaje "+ self.nombre +" esta muerto")
+    def _init_(self,esp,nom,alt):
+
+        self.__especie = esp
+        self.__nombre = nom
+        self.__altura = alt
+        
+    def get__especie(self):
+        return self.__especie
     
-    # Método de instancia 'lanzarGranada' que define otra acción del personaje.
+    def get__nombre(self):
+        return self.__nombre
+    
+    def get__altura(self):
+        return self.__altura
+    
+    def set__especie(self, __especie):
+        self.__especie = __especie
+       
+    def set__nombre(self, __nombre):
+        self.__nombre = __nombre 
+        
+    def set__altura(self, __altura):
+        self.__altura = __altura
+    
+    
+    #Metodos del personaje
+    def correr(self, __estado):
+        if(__estado):
+            print("El personaje"+ self.__nombre+" está corriendo")
+        else:
+            print("El personaje "+ self.__nombre+" está muerto")
+            
     def lanzarGranada(self):
-        # Imprime que el personaje ha lanzado una granada.
-        print(self.nombre+" Pego una granada")
+        print(self.__nombre + " Pegó una granada")
