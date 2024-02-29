@@ -1,62 +1,87 @@
-from usuario import Usuario
-from crud import CRUD
+from usuario import Usuario  # Importa la clase Usuario 
+from crud import CRUD  # Importa la clase CRUD 
 
+def menu():
+    #muestra un menú 
+    print("1. Crear usuario")
+    print("2. Editar usuario")
+    print("3. Eliminar usuario")
+    print("4. Consultar usuarios")
+    print("5. Salir")
+    opcion = int(input("Seleccione una opción: "))  # Solicita la opción al usuario
+    return opcion
+# spartan = Personaje(especieS, nombreS, alturaS)
+# Nemesis = Personaje(especieN, nombreN, alturaN)
+# Arma = Armas()
 def main():
-    crud = CRUD()
+    gestor_usuarios = CRUD()  #  instancia  CRUD para el cru
 
-    while True:
-        print("\nOperaciones CRUD para Usuarios")
-        print("1. Crear usuario")
-        print("2. Consultar usuario")
-        print("3. Actualizar usuario")
-        print("4. Eliminar usuario")
-        print("5. Salir")
-        opcion = input("Seleccione una opción: ")
+    while True:  # Inicia un bucle infinito para que se repita una y otra vex el menu
+        opcion = menu()  # obtiene la opción 
 
-        if opcion == '1':
-            id_usuario = int(input("Ingrese el ID del usuario: "))
-            nombre = input("Ingrese el nombre del usuario: ")
-            apellido_p = input("Ingrese el apellido paterno del usuario: ")
-            apellido_m = input("Ingrese el apellido materno del usuario: ")
-            correo = input("Ingrese el correo electrónico del usuario: ")
-            contrasena = input("Ingrese la contraseña del usuario: ")
-            nuevo_usuario = Usuario(id_usuario, nombre, apellido_p, apellido_m, correo, contrasena)
-            crud.crear_usuario(nuevo_usuario)
+        if opcion == 1:  # Si la opción es 1, el usuario quiere crear un nuevo usuario
+            id = int(input("Ingrese ID del usuario: "))
+            nombre = input("Ingrese nombre del usuario: ")
+            edad = input("Ingrese edad del usuario: ")
+            direccion = input("Ingrese dirección del usuario: ")
+            contraseña = input("Ingrese contraseña del usuario: ")
+            correo = input("Ingrese correo del usuario: ")
+            usuario = Usuario(id, nombre, edad, direccion, contraseña, correo)
+            gestor_usuarios.crear_usuario(usuario)  # Llama al método para crear un usuario en el gestor de usuarios
             print("Usuario creado exitosamente.")
-
-        elif opcion == '2':
-            id_usuario = int(input("Ingrese el ID del usuario a consultar: "))
-            usuario = crud.consultar_usuario(id_usuario)
-            if usuario:
-                print(f"ID: {usuario.get_id()}, Nombre: {usuario.getnombre()}, Apellido P: {usuario.getapellido_p()}, Apellido M: {usuario.getapellido_m()}, Correo: {usuario.get_correo()}")
-            else:
-                print("Usuario no encontrado.")
-
-        elif opcion == '3':
-            id_usuario = int(input("Ingrese el ID del usuario a actualizar: "))
-            nombre = input("Ingrese el nuevo nombre del usuario: ")
-            apellido_p = input("Ingrese el nuevo apellido paterno del usuario: ")
-            apellido_m = input("Ingrese el nuevo apellido materno del usuario: ")
-            correo = input("Ingrese el nuevo correo electrónico del usuario: ")
-            contrasena = input("Ingrese la nueva contraseña del usuario: ")
-            if crud.actualizar_usuario(id_usuario, nombre=nombre, apellido_p=apellido_p, apellido_m=apellido_m, correo=correo, contrasena=contrasena):
-                print("Usuario actualizado exitosamente.")
-            else:
-                print("Usuario no encontrado.")
-
-        elif opcion == '4':
-            id_usuario = int(input("Ingrese el ID del usuario a eliminar: "))
-            if crud.eliminar_usuario(id_usuario):
-                print("Usuario eliminado exitosamente.")
-            else:
-                print("Usuario no encontrado.")
-
-        elif opcion == '5':
-            print("Saliendo del programa.")
-            break
-
+        elif opcion == 2:
+            #  editar un usuario existente
+            id = int(input("Ingrese ID del usuario a editar: "))
+            nombre = input("Ingrese nuevo nombre del usuario: ")
+            edad = input("Ingrese nueva edad del usuario: ")
+            direccion = input("Ingrese nueva dirección del usuario: ")
+            contraseña = input("Ingrese nueva contraseña del usuario: ")
+            correo = input("Ingrese nuevo correo del usuario: ")
+            gestor_usuarios.editar_usuario(id, nombre, edad, direccion, contraseña, correo)  # Llama al método para editar un usuario en el gestor de usuarios
+            print("Usuario editado exitosamente.")
+        elif opcion == 3:
+            #  eliminar un usuario existente
+            id = int(input("Ingrese ID del usuario a eliminar: "))
+            gestor_usuarios.eliminar_usuario(id)  # Llama al método para eliminar un usuario en el gestor de usuarios
+            print("Usuario eliminado exitosamente.")
+        elif opcion == 4:
+            #  consultar todos los usuarios existentes
+            usuarios = gestor_usuarios.consultar_usuario()  # Obtiene la lista de usuarios del gestor de usuarios
+            print("Lista de usuarios:")
+            for usuario in usuarios:  # Itera sobre la lista de usuarios y muestra la información de cada uno
+                print(f"ID: {usuario.obtener_id()}, Nombre: {usuario.obtener_nombre()}, Edad: {usuario.obtener_edad()}, Dirección: {usuario.obtener_direccion()}, Correo: {usuario.obtener_correo()}")
+        elif opcion == 5:
+            #  salir del programa
+            print("Saliendo del programa...")
+            break  # Sale del bucle infinito y termina el programa
         else:
-            print("Opción no válida. Por favor, intente de nuevo.")
+            #  mensaje de error
+            print("Opción no válida. Por favor, seleccione una opción válida.")
 
-if _name_ == "_main_":
-    main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == "__main__":
+    main()  # Llama a la función principal si el script es ejecutado directamente

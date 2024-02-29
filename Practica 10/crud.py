@@ -1,37 +1,34 @@
+from usuario import Usuario 
+
 class CRUD:
-    
-    def _init_(self):
-        self.usuarios = []
+  
+    def __init__(self):
         
+        # Inicializa una lista vacía para almacenar los usuarios
+        self._usuarios = []
+
     def crear_usuario(self, usuario):
-        self.usuarios.append(usuario)
-        return usuario
+       
+        self._usuarios.append(usuario)
 
-    def consultar_usuario(self, id_usuario):
-        for usuario in self.usuarios:
-            if usuario.get__id() == id_usuario:
-                return usuario
-        return None
+    def editar_usuario(self, id, nombre, edad, direccion, contraseña, correo):
+       
+        for usuario in self._usuarios:
+            if usuario.obtener_id() == id:
+                usuario.establecer_nombre(nombre)
+                usuario.establecer_edad(edad)
+                usuario.establecer_direccion(direccion)
+                usuario.establecer_contraseña(contraseña)
+                usuario.establecer_correo(correo)
+                break  # Sale del bucle una vez que se actualiza el usuario
 
-    def actualizar_usuario(self, id_usuario, nombre=None, apellido_p=None, apellido_m=None, correo=None, contrasena=None):
-        usuario = self.consultar_usuario(id_usuario)
-        if usuario is not None:
-            if nombre is not None:
-                usuario.set__nombre(nombre)
-            if apellido_p is not None:
-                usuario.set__apellido_p(apellido_p)
-            if apellido_m is not None:
-                usuario.set__apellido_m(apellido_m)
-            if correo is not None:
-                usuario.set__correo(correo)
-            if contrasena is not None:
-                usuario.set__contrasena(contrasena)
-            return True
-        return False
+    def eliminar_usuario(self, id):
+        
+        for usuario in self._usuarios:
+            if usuario.obtener_id() == id:
+                self._usuarios.remove(usuario)
+                break  # Sale del bucle una vez que se elimina el usuario
 
-    def eliminar_usuario(self, id_usuario):
-        usuario = self.consultar_usuario(id_usuario)
-        if usuario is not None:
-            self.usuarios.remove(usuario)
-            return True
-        return False
+    def consultar_usuario(self):
+        
+        return self._usuarios

@@ -1,47 +1,56 @@
 class Usuario:
-    
-    def _init_(self, id_usuario, nombre, apellido_p, apellido_m, correo, contrasena):
-        self.__id = id_usuario
-        self.__nombre = nombre
-        self.__apellido_p = apellido_p
-        self.__apellido_m = apellido_m
-        self.__correo = correo
-        self.__contrasena = contrasena
-        
-    # Getters
-    def get__id(self):
-        return self.__id
-    
-    def get__nombre(self):
-        return self.__nombre
+    # Define una clase llamada Usuario para representar usuarios
 
-    def get__apellido_p(self):
-        return self.__apellido_p
+    def __init__(self, id, nombre, edad, direccion, contraseña, correo):
+        # Método especial de inicialización que se llama cuando se crea un nuevo objeto Usuario
+        # Inicializa los atributos del usuario con los valores proporcionados
+        self._id = id
+        self._nombre = nombre
+        self._edad = edad
+        self._direccion = direccion
+        self._contraseña = contraseña
+        self._correo = correo
 
-    def get__apellido_m(self):
-        return self.__apellido_m
+    def obtener_id(self):
+        # obtener el ID del usuario
+        return self._id
 
-    def get__correo(self):
-        return self.__correo
+    def obtener_nombre(self):
+        # obtener el nombre del usuario
+        return self._nombre
 
-    def get__contrasena(self):
-        return self.__contrasena
+    def obtener_edad(self):
+        # obtener la edad del usuario
+        return self._edad
 
-    # Setters
-    def set__id(self, valor):
-        self.__id = valor
+    def obtener_direccion(self):
+        # obtener la dirección del usuario
+        return self._direccion
 
-    def set__nombre(self, valor):
-        self.__nombre = valor
+    def obtener_contraseña(self):
+        # obtener la contraseña del usuario
+        return self._contraseña
 
-    def set__apellido_p(self, valor):
-        self.__apellido_p = valor
+    def obtener_correo(self):
+        # obtener el correo del usuario
+        return self._correo
 
-    def set__apellido_m(self, valor):
-        self.__apellido_m = valor
+    def establecer_nombre(self, nombre):
+        # establecer el nombre del usuario
+        self._nombre = nombre
 
-    def set__correo(self, valor):
-        self.__correo = valor
+    def establecer_edad(self, edad):
+        # establecer la edad del usuario
+        self._edad = edad
 
-    def set__contrasena(self, valor):
-        self.__contrasena = valor
+    def establecer_direccion(self, direccion):
+        # establecer la dirección del usuario
+        self._direccion = direccion
+
+    def establecer_contraseña(self, contraseña):
+        # establecer la contraseña del usuario
+        self._contraseña = contraseña
+
+    def establecer_correo(self, correo):
+        # establecer el correo del usuario
+        self._correo = correo
