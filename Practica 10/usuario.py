@@ -2,8 +2,7 @@ class Usuario:
     # Define una clase llamada Usuario para representar usuarios
 
     def __init__(self, id, nombre, edad, direccion, contraseña, correo):
-        # Método especial de inicialización que se llama cuando se crea un nuevo objeto Usuario
-        # Inicializa los atributos del usuario con los valores proporcionados
+        
         self._id = id
         self._nombre = nombre
         self._edad = edad

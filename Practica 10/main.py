@@ -8,7 +8,7 @@ def menu():
     print("3. Eliminar usuario")
     print("4. Consultar usuarios")
     print("5. Salir")
-    opcion = int(input("Seleccione una opción: "))  # Solicita la opción al usuario
+    opcion = int(input("Seleccione una opción: "))  #  opciones
     return opcion
 # spartan = Personaje(especieS, nombreS, alturaS)
 # Nemesis = Personaje(especieN, nombreN, alturaN)
