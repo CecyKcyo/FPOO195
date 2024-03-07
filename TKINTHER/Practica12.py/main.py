@@ -37,7 +37,7 @@ def menu_terminal(crud):
             for usuario in usuarios:
                 print(f"ID: {usuario.obtener_id()}, Correo: {usuario.obtener_correo()}, Contraseña: {usuario.obtener_contraseña()}")
         elif opcion == "5":
-            app = AplicacionLogin()  # Inicia la interfaz gráfica
+            app = AplicacionLogin(crud)  # Modified to pass the CRUD instance
             app.iniciar()
         elif opcion == "6":
             print("Saliendo...")

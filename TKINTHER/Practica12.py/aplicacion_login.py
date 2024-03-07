@@ -3,11 +3,11 @@ from tkinter import messagebox
 from crud import CRUD
 
 class AplicacionLogin:
-    def __init__(self):
+    def __init__(self, gestor_usuarios):
         self.ventana = tk.Tk()
         self.ventana.title("Login")
 
-        self.gestor_usuarios = CRUD()
+        self.gestor_usuarios = gestor_usuarios
 
         tk.Label(self.ventana, text="Correo:").grid(row=0, column=0)
         self.entrada_correo = tk.Entry(self.ventana)
@@ -35,7 +35,3 @@ class AplicacionLogin:
             messagebox.showinfo("Login exitoso", "Bienvenido al sistema")
         else:
             messagebox.showerror("Error", "Correo o contraseña incorrectos. Por favor, revise sus datos")
-
-if __name__ == "__main__":
-    app = AplicacionLogin()
-    app.iniciar()
