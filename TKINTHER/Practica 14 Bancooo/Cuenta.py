@@ -21,14 +21,14 @@ class Cuenta:
         return False
     
     def retirar_efectivo(self, cantidad):
-        """Intenta retirar una cantidad de dinero de la cuenta.
+        # """Intenta retirar una cantidad de dinero de la cuenta.
         
-        Args:
-            cantidad (float): La cantidad de dinero a retirar.
+        # Args:
+        #     cantidad (float): La cantidad de dinero a retirar.
         
-        Returns:
-            bool: True si el retiro fue exitoso, False si no hay saldo suficiente.
-        """
+        # Returns:
+        #     bool: True si el retiro fue exitoso, False si no hay saldo suficiente.
+        # """
         if cantidad <= self.saldo:
             self.saldo -= cantidad
             return True
