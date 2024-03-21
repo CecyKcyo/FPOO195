@@ -9,14 +9,16 @@ class Movimientos:
             return True
         return False
 
-    def transferir(self, numero_cuenta_origen, numero_cuenta_destino, cantidad):
-        cuenta_origen = self.manejador_cuentas.buscar_cuenta(numero_cuenta_origen)
-        cuenta_destino = self.manejador_cuentas.buscar_cuenta(numero_cuenta_destino)
-        if cuenta_origen and cuenta_destino and cantidad > 0:
-            if cuenta_origen.saldo >= cantidad:
-                cuenta_origen.retirar(cantidad)
-                cuenta_destino.ingresar(cantidad)
-                return True
-            else:
-                return False
+    def transferir(self, cuenta_origen, cuenta_destino, cantidad):
+        origen = self.manejador_cuentas.buscar_cuenta(cuenta_origen)
+        destino = self.manejador_cuentas.buscar_cuenta(cuenta_destino)
+        if origen and destino and cantidad > 0 and origen.retirar(cantidad):
+            destino.ingresar(cantidad)
+            return True
+        return False
+
+    def retirar(self, numero_cuenta, cantidad):
+        cuenta = self.manejador_cuentas.buscar_cuenta(numero_cuenta)
+        if cuenta and cantidad > 0 and cuenta.retirar(cantidad):
+            return True
         return False

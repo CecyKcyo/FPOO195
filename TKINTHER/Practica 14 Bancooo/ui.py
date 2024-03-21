@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
-from manejo_cuentas import ManejoCuentas
-from movimientos import Movimientos
-from Cuenta import Cuenta
+from manejo_cuentas import ManejoCuentas  
+from movimientos import Movimientos  
+from Cuenta import Cuenta  
 
 class VentanaMovimientos(tk.Toplevel):
     def __init__(self, parent, manejador_cuentas):
@@ -10,7 +10,7 @@ class VentanaMovimientos(tk.Toplevel):
         self.manejador_cuentas = manejador_cuentas
         self.movimientos = Movimientos(self.manejador_cuentas)
         self.title("Movimientos de la Cuenta")
-        self.geometry("400x350")
+        self.geometry("400x500")
         self.configure(bg='light green')
 
         # Componentes UI para Depósito
@@ -18,6 +18,9 @@ class VentanaMovimientos(tk.Toplevel):
 
         # Componentes UI para Transferencia
         self.setup_transferencia_seccion()
+
+        # Componentes UI para Retiro
+        self.setup_retiro_seccion()
 
     def setup_deposito_seccion(self):
         tk.Label(self, text="Depositar a Cuenta", bg='light green').pack(pady=(10,0))
@@ -49,6 +52,19 @@ class VentanaMovimientos(tk.Toplevel):
 
         tk.Button(self, text="Transferir", command=self.transferir, bg='green').pack(pady=5)
 
+    def setup_retiro_seccion(self):
+        tk.Label(self, text="Retirar de Cuenta", bg='light green').pack(pady=(20,0))
+
+        tk.Label(self, text="Número de Cuenta para Retiro:", bg='light green').pack()
+        self.numero_cuenta_retiro_entry = tk.Entry(self)
+        self.numero_cuenta_retiro_entry.pack()
+
+        tk.Label(self, text="Cantidad a retirar:", bg='light green').pack()
+        self.cantidad_retiro_entry = tk.Entry(self)
+        self.cantidad_retiro_entry.pack()
+
+        tk.Button(self, text="Retirar", command=self.retirar, bg='green').pack(pady=5)
+
     def depositar(self):
         numero_cuenta = self.numero_cuenta_entry_mov.get()
         try:
@@ -65,81 +81,12 @@ class VentanaMovimientos(tk.Toplevel):
         cuenta_destino = self.cuenta_destino_entry.get()
         try:
             cantidad = float(self.cantidad_transferencia_entry.get())
-            cuenta_orig = self.manejador_cuentas.buscar_cuenta(cuenta_origen)
-            if cuenta_orig and cuenta_orig.saldo >= cantidad:
-                if self.movimientos.transferir(cuenta_origen, cuenta_destino, cantidad):
-                    messagebox.showinfo("Éxito", "Transferencia realizada con éxito")
-                else:
-                    messagebox.showerror("Error", "No se pudo realizar la transferencia")
+            if self.movimientos.transferir(cuenta_origen, cuenta_destino, cantidad):
+                messagebox.showinfo("Éxito", "Transferencia realizada con éxito")
             else:
-                messagebox.showerror("Error", "Saldo insuficiente para realizar la transferencia")
+                messagebox.showerror("Error", "No se pudo realizar la transferencia")
         except ValueError:
             messagebox.showerror("Error", "Ingrese una cantidad válida")
 
-class App(tk.Tk):
-    def __init__(self):
-        super().__init__()
-        self.title("Gestión de Cuentas de Caja Popular")
-        self.manejo_cuentas = ManejoCuentas()
-        self.geometry("400x300")
-        self.configure(bg='pink')
-
-        self.create_widgets()
-
-    def create_widgets(self):
-        tk.Label(self, text="Gestión de Cuentas", bg='pink').pack(pady=10)
-        tk.Label(self, text="Número de Cuenta:", bg='pink').pack()
-        self.numero_cuenta_entry = tk.Entry(self)
-        self.numero_cuenta_entry.pack()
-
-        tk.Label(self, text="Titular:", bg='pink').pack()
-        self.titular_entry = tk.Entry(self)
-        self.titular_entry.pack()
-
-        tk.Label(self, text="Edad:", bg='pink').pack()
-        self.edad_entry = tk.Entry(self)
-        self.edad_entry.pack()
-
-        tk.Button(self, text="Agregar Cuenta", command=self.agregar_cuenta, bg='light pink').pack(pady=5)
-        tk.Button(self, text="Consultar Saldo", command=self.consultar_saldo, bg='light pink').pack(pady=5)
-        tk.Button(self, text="Movimientos de la Cuenta", command=self.abrir_ventana_movimientos, bg='light pink').pack(pady=5)
-
-    def agregar_cuenta(self):
-        numero_cuenta = self.numero_cuenta_entry.get()
-        titular = self.titular_entry.get()
-        try:
-            edad = int(self.edad_entry.get())
-            if edad < 18:
-                messagebox.showerror("Error", "El titular debe ser mayor de edad")
-                return
-            cuenta_nueva = Cuenta(numero_cuenta, titular, edad)
-            self.manejo_cuentas.agregar_cuenta(cuenta_nueva)
-            messagebox.showinfo("Éxito", "Cuenta agregada correctamente")
-            self.numero_cuenta_entry.delete(0, tk.END)
-            self.titular_entry.delete(0, tk.END)
-            self.edad_entry.delete(0, tk.END)
-        except ValueError:
-            messagebox.showerror("Error", "La edad debe ser un número")
-
-    def consultar_saldo(self):
-        numero_cuenta = self.numero_cuenta_entry.get()
-        cuenta = self.manejo_cuentas.buscar_cuenta(numero_cuenta)
-        if cuenta:
-            messagebox.showinfo("Saldo", f"El saldo de la cuenta {numero_cuenta} es: {cuenta.consultar_saldo()}")
-        else:
-            messagebox.showerror("Error", "Cuenta no encontrada")
-
-    def abrir_ventana_movimientos(self):
-        if not self.numero_cuenta_entry.get():
-            messagebox.showerror("Error", "Ingrese un número de cuenta para ver los movimientos")
-            return
-        cuenta = self.manejo_cuentas.buscar_cuenta(self.numero_cuenta_entry.get())
-        if cuenta:
-            VentanaMovimientos(self, self.manejo_cuentas)
-        else:
-            messagebox.showerror("Error", "Cuenta no encontrada")
-
-if __name__ == "__main__":
-    app = App()
-    app.mainloop()
-
+    def retirar(self):
+        numero_cuenta = self.numero_cuenta_retiro_entry.get()
