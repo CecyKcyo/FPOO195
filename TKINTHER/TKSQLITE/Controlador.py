@@ -67,5 +67,21 @@ class Controlador:
         else:
             messagebox.showwarning("Error", "Ese usuario no existe tibio.")
             return None
+        
+    # Método para consultar todos los usuarios 
+    def consultarUsuarios(self):
+        try:
+            conexion = self.conexion()
+            cursor = conexion.cursor()
+            cursor.execute("SELECT id, nombre, correo, contra FROM tbUsuarios")
+            usuarios = cursor.fetchall()
+            return usuarios
+        except Exception as e:
+            messagebox.showerror("Error", f"Se produjo un error al consultar usuarios: {e}")
+        finally:
+            if conexion:
+                conexion.close()
+
+
 
  
