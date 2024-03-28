@@ -7,7 +7,7 @@ class Controlador:
     def conexion(self):
         try:
             # Intenta conectar a la base de datos especificada por la ruta
-            conex = sqlite3.connect("D:/Fundamentos de programacion/FPOO195/FPOO195/TKINTHER/TKSQLITE/db195.db")
+            conex = sqlite3.connect("D:/Fundamentos de programacion/FPOO195/TKINTHER/TKSQLITE/db195.db")
             print("Conectado")
             return conex
         except sqlite3.OperationalError:
@@ -81,6 +81,37 @@ class Controlador:
         finally:
             if conexion:
                 conexion.close()
+    
+  
+    def actualizarUsuario(self, id_usuario, nom, corr, cont):
+        try:
+            conexion = self.conexion()
+            cursor = conexion.cursor()
+            # Encripta la nueva contraseña antes de actualizar
+            conH = self.encriptapass(cont)
+            datos = (nom, corr, conH, id_usuario)
+            sqlupdate = "UPDATE tbUsuarios SET nombre = ?, correo = ?, contra = ? WHERE id = ?"
+            cursor.execute(sqlupdate, datos)
+            conexion.commit()
+        except Exception as e:
+            messagebox.showerror("Error al actualizar", f"Error: {e}")
+        finally:
+            conexion.close()
+            messagebox.showinfo("Actualización", "Usuario actualizado con éxito")
+    
+    def eliminarUsuario(self, id_usuario):
+        try:
+            conexion = self.conexion()
+            cursor = conexion.cursor()
+            sqldelete = "DELETE FROM tbUsuarios WHERE id = ?"
+            cursor.execute(sqldelete, (id_usuario,))
+            conexion.commit()
+        except Exception as e:
+            messagebox.showerror("Error al eliminar", f"Error: {e}")
+        finally:
+            conexion.close()
+            messagebox.showinfo("Eliminación", "Usuario eliminado con éxito")
+
 
 
 

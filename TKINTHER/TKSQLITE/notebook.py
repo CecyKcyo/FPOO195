@@ -81,5 +81,44 @@ for col in cols:
 listaUsuarios.pack(fill='both', expand=True)
 Button(pestana3, text="Cargar Usuarios", command=cargarUsuarios).pack()
 
+# Pestaña de Edición de Usuario
+Label(pestana4, text="Editar Usuario", fg="Pink", font=("Modern", 18)).pack()
+
+varEditId = tk.StringVar()
+Label(pestana4, text="ID: ").pack()
+Entry(pestana4, textvariable=varEditId).pack()
+
+varEditNombre = tk.StringVar()
+Label(pestana4, text="Nuevo Nombre: ").pack()
+Entry(pestana4, textvariable=varEditNombre).pack()
+
+varEditCorreo = tk.StringVar()
+Label(pestana4, text="Nuevo Correo: ").pack()
+Entry(pestana4, textvariable=varEditCorreo).pack()
+
+varEditContra = tk.StringVar()
+Label(pestana4, text="Nueva Contraseña: ").pack()
+Entry(pestana4, textvariable=varEditContra, show='*').pack()
+
+def ejecutaActualizar():
+    objControlador.actualizarUsuario(varEditId.get(), varEditNombre.get(), varEditCorreo.get(), varEditContra.get())
+    cargarUsuarios()  # Actualiza la lista de usuarios en la pestaña de consulta
+
+Button(pestana4, text="Actualizar Usuario", command=ejecutaActualizar).pack()
+
+
+# Pestaña de Eliminación de Usuario
+Label(pestana5, text="Eliminar Usuario", fg="Pink", font=("Modern", 18)).pack()
+
+varDeleteId = tk.StringVar()
+Label(pestana5, text="ID del Usuario a Eliminar: ").pack()
+Entry(pestana5, textvariable=varDeleteId).pack()
+
+def ejecutaEliminar():
+    objControlador.eliminarUsuario(varDeleteId.get())
+    cargarUsuarios()  # Actualiza la lista de usuarios en la pestaña de consulta
+
+Button(pestana5, text="Eliminar Usuario", command=ejecutaEliminar).pack()
+
 
 ventana.mainloop()
