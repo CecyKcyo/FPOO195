@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Administrador de Productos Donados - MACRA</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    background-image: url('fondo\ de\ comida.jpg'); /* Replace with your actual image */
+    background-size: cover;
+    background-position: center;
+  }
+
+  .header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .header h1 {
+    margin: 0;
+  }
+
+  .add-product {
+    margin-top: 10px;
+    text-align: right;
+    padding: 0 20px;
+  }
+
+  .add-product button {
+    background-color: #4CAF50; /* Adjust the color to match your design */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .search-bar {
+    text-align: right;
+    padding: 0 20px;
+    margin-bottom: 20px;
+  }
+
+  .search-bar input {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  th {
+    background-color: #FFC107;
+    color: white;
+    padding: 10px;
+  }
+
+  td {
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .action-buttons img {
+    width: 24px;
+    height: 24px;
+  }
+  .add-product img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .search-bar img {
+    width: 24px;
+    height: 24px;
+  }
+
+
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr { border: 1px solid #ccc; }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+      content: attr(data-title);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>MACRA</h1>
+  <h2>Administrador productos donados</h2>
+</div>
+
+<div class="add-product">
+    <button><img src="agregar-producto.png" alt="Agregar" /></button>
+</div>
+
+<div class="search-bar">
+  <input type="search" placeholder="BUSCAR PRODUCTOS DONADOS">
+  <button><img src="Buscar.png" alt="Buscar" /></button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id_donación</th>
+      <th>Nombre</th>
+      <th>Cantidad</th>
+      <th>Institución a la que fue donada</th>
+      <th>Localidad</th>
+      <th>Fecha de donación</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+      <th>Guardar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-title="Id_donación">1</td>
+      <td data-title="Nombre">Arroz</td>
+      <td data-title="Cantidad">4</td>
+      <td data-title="Institución a la que fue donada">Asilo 16</td>
+      <td data-title="Localidad">Pedro escobedo</td>
+      <td data-title="Fecha de donación">03/12/2023</td>
+      <td data-title="Editar" class="action-buttons"><button><img src="editar.png" alt="Editar" /></button></td>
+      <td data-title="Eliminar" class="action-buttons"><button><img src="eliminar.png" alt="Eliminar" /></button></td>
+      <td data-title="Guardar" class="action-buttons"><button><img src="guardar.png" alt="Guardar" /></button></td>
+    </tr>
+    <!-- Repeat rows as needed -->
+  </tbody>
+</table>
+
+</body>
+</html>

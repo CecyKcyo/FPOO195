@@ -14,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url('fondo\ de\ comida.jpg'); /* Replace with your image */
+    background-image: url('fondo\ de\ comida.jpg'); /* Adjust the path as needed */
     background-size: cover;
     background-position: center;
   }
@@ -54,14 +54,20 @@
     border-radius: 5px;
   }
 
-  .card .guardar-btn img {
-    width: 20px; /* Set the width to a smaller size */
-    height: auto; /* Maintain the aspect ratio */
-    margin-right: 8px;
+  .guardar-btn {
+    background-color: #ffc10700; /* Use the color for your button */
+    border: none;
+    cursor: pointer;
+    padding: 0; /* Reset padding */
+    border-radius: 5px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .card .guardar-btn img {
-    margin-right: 5px;
+  .guardar-btn img {
+    width: 50px; /* Adjust to the size of your icon */
+    height: 50px; /* Adjust to the size of your icon */
   }
 
   @media (max-width: 768px) {
@@ -72,26 +78,39 @@
 </style>
 </head>
 <body>
-<div class="card">
+    <div class="card">
   <h1>MACRA</h1>
   <h2>Agregar producto a donar</h2>
   <form>
-    <label for="nombreProducto">Nombre del producto</label>
-    <input type="text" id="nombreProducto" value="ARROZ">
     
-    <label for="unidadMedida">Unidad de medida</label>
-    <input type="text" id="unidadMedida" value="KILOS">
+      <label for="productName">Nombre del producto</label>
+      <input type="text" id="productName" value="ARROZ">
+   
     
-    <label for="cantidad">Cantidad</label>
-    <input type="number" id="cantidad" value="4">
+      <label for="quantity">Cantidad</label>
+      <input type="number" id="quantity" value="4">
     
-    <label for="perecedero">¿Es perecedero?</label>
-    <input type="text" id="perecedero" value="SI">
+
     
+      <label for="institution">Institución a la que fue donada</label>
+      <input type="text" id="institution" value="ASILO">
+    
+
+    
+      <label for="locality">Localidad</label>
+      <input type="text" id="locality" value="PEDRO ESCOBEDO">
+    
+
+    
+      <label for="dateOfEntry">Fecha de ingreso</label>
+      <input type="date" id="dateOfEntry" value="2023-07-01">
+    
+
     <button type="submit" class="guardar-btn">
-      <img src="guardar.png" alt="Icono Guardar">Guardar
+      <img src="guardar.png" alt="Guardar" /> <!-- Only the icon is used for the button -->
     </button>
   </form>
+
 </div>
 </body>
 </html>
