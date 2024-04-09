@@ -32,7 +32,7 @@ def ejecutaPdf():
         objPDF.output(str(varTitulo.get())+".pdf")
         rutaPDF= "D:/Fundamentos de programacion/FPOO195/TKINTHER/TKSQLITE/"+varTitulo.get()+".pdf"
         messagebox.showinfo("Archivo creado", "PDF disponible en carpeta")
-        os.system(f"start{rutaPDF}")
+        os.system(f"start {rutaPDF}")
         
 def cargarUsuarios():
     
