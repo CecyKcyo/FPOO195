@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACRA Administrador de Productos</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: beige; /* Replace with your actual image URL */
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  .navbar {
+    background-color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .navbar .search-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar input[type="search"] {
+    padding: 5px;
+    margin-right: 5px;
+  }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #ffcc00;
+    padding: 10px;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .icon-btn img {
+    width: 24px; /* Adjust size as needed */
+    height: 24px; /* Adjust size as needed */
+  }
+
+  @media (max-width: 768px) {
+    .table-container {
+      padding: 0 10px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="navbar">
+    <span class="logo">MACRA</span>
+    <div class="search-bar">
+        <input type="search" placeholder="BUSCA TU PRODUCTO">
+        <button class="icon-btn">
+            <img src="buscar.png" alt="Buscar">
+        </button>
+        <button class="icon-btn">
+          <img src="cerrar-sesion.png" alt="regresar">
+      </button>
+      <button class="icon-btn">
+        <img src="agregar-producto.png" alt="regresar">
+    </button>
+
+    </div>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id_Producto</th>
+                <th>Nombre</th>
+                <th>Unidad de medida</th>
+                <th>Cantidad</th>
+                <th>Percedero</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Replace with data from the database -->
+            <tr>
+                <td>1</td>
+                <td>Arroz</td>
+                <td>Kilos</td>
+                <td>5</td>
+                <td>Si</td>
+                
+            </tr>
+            <!-- Repeat for each product -->
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

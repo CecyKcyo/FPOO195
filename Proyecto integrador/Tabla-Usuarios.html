@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Management Dashboard</title>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('path_to_your_background_image.jpg'); /* Replace with your actual background image path */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for readability */
+    padding: 20px;
+    width: 90%;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  header h1 {
+    font-size: 36px;
+    color: #ff6f3c;
+  }
+  .search-container input[type="text"] {
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    outline: none;
+  }
+  .search-container button {
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ff6f3c;
+    color: white;
+    cursor: pointer;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+  }
+  th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  th {
+    background-color: #ff6f3c;
+    color: white;
+  }
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .icon {
+    width: 20px; /* Adjust as necessary */
+    cursor: pointer;
+  }
+  .add-btn {
+    display: inline-block;
+    width: 30px; /* Adjust as necessary */
+    height: 30px; /* Adjust as necessary */
+    background-image: url('path_to_your_add_icon.png'); /* Replace with your actual add icon image path */
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <div>
+      <h1>MACRA</h1>
+      <h2>Administrador usuarios</h2>
+    </div>
+    <div class="search-container">
+      <input type="text" placeholder="BUSCA TU USUARIO">
+      <button>🔍</button>
+    </div>
+  </header>
+  <table>
+    <thead>
+      <tr>
+        <th>Id_usuario</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Rol</th>
+        <th>Correo</th>
+        <th>Contraseña</th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+        <th>Guardar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example user row -->
+      <tr>
+        <td>1</td>
+        <td>Cecilia</td>
+        <td>Rodriguez Altamirano</td>
+        <td>Administrador</td>
+        <td>cecilia.rodrigu@example.com</td>
+        <td>Cecy123</td>
+        <td><img src="path_to_your_edit_icon.png" alt="Edit" class="icon"></td>
+        <td><img src="path_to_your_delete_icon.png" alt="Delete" class="icon"></td>
+        <td><img src="path_to_your_save_icon.png" alt="Save" class="icon"></td>
+      </tr>
+      <!-- Add more rows as needed -->
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
