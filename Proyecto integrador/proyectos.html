@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MACRA: Banco de alimentos - Proyectos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f4f4;
+            color: #333;
+        }
+        
+        .header {
+            background: #ffcc00;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .navbar .logo {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+        
+        .nav-links a, .login-button {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-links a:hover, .login-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 5px;
+        }
+        
+        .login-button {
+            padding: 5px 15px;
+            background: #007bff;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        
+        .sidebar {
+            background-color: #76ba1b;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            flex: 1 1 300px;
+        }
+        
+        .projects {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            flex: 3 1 600px;
+        }
+        
+        .projects table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .projects th, .projects td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .projects th {
+            background-color: #333;
+            color: white;
+        }
+        
+        .images {
+            padding: 20px;
+            text-align: center;
+            flex-basis: 100%;
+        }
+        
+        .images img {
+            width: auto;
+            max-height: 150px;
+            margin: 0 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links, .login-button {
+                display: block;
+                text-align: center;
+            }
+        
+            .nav-links a, .login-button {
+                display: inline-block;
+                margin: 5px;
+            }
+        
+            .content {
+                flex-direction: column;
+            }
+        
+            .sidebar, .projects {
+                flex-basis: auto;
+            }
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="navbar">
+            <div class="logo">MACRA: Banco de alimentos</div>
+            <nav class="nav-links">
+                <a href="#proyectos">PROYECTOS</a>
+                <a href="#unirse">QUIERO UNIRME</a>
+                <button class="login-button">INICIAR SESIÓN</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        <aside class="sidebar">
+            <h2>PROYECTOS</h2>
+            <p>Aquí se te presentan los proyectos que se tienen confirmados por nuestro equipo, donde se presenta el lugar o la comunidad que se apoyará y se presentan las fechas en las que se tiene pensado llevar a cabo las entregas.</p>
+        </aside>
+        
+        <section class="projects">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Siguientes destinos</th>
+                        <th>Fechas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Comunidad (1)</td>
+                        <td>Fecha(1)</td>
+                    </tr>
+                    <tr>
+                        <td>Comunidad (2)</td>
+                        <td>Fecha(2)</td>
+                    </tr>
+                    <tr>
+                        <td>Comunidad (3)</td>
+                        <td>Fecha(3)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="images">
+            <!-- Las imágenes se deberían referenciar con el path correcto -->
+            <img src="banco-comida.jpg" alt="Alimentos">
+            <img src="calendario.png" alt="Calendario">
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Información de contacto o pie de página -->
+    </footer>
+</body>
+</html>

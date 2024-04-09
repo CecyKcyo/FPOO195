@@ -1,125 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Management Dashboard</title>
+<title>MACRA Administrador de Usuarios</title>
 <style>
-  body, html {
+  body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('path_to_your_background_image.jpg'); /* Replace with your actual background image path */
+    background-image: url("fondo\ de\ comida.jpg"); /* Sustituye con la URL de tu imagen de fondo real */
     background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-attachment: fixed;
   }
-  .container {
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for readability */
-    padding: 20px;
-    width: 90%;
-    margin: 50px auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  header {
+
+  .navbar {
+    background-color: #fff;
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
   }
-  header h1 {
-    font-size: 36px;
-    color: #ff6f3c;
+
+  .navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
   }
-  .search-container input[type="text"] {
-    padding: 8px;
-    margin-right: 10px;
-    border-radius: 20px;
-    border: 1px solid #ddd;
-    outline: none;
+
+  .navbar .search-bar {
+    display: flex;
+    align-items: center;
   }
-  .search-container button {
-    padding: 8px 16px;
-    border-radius: 20px;
-    border: none;
-    background-color: #ff6f3c;
-    color: white;
-    cursor: pointer;
+
+  .navbar input[type="search"] {
+    padding: 5px;
+    margin-right: 5px;
   }
+
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    padding: 20px;
+  }
+
   table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #ffffff;
+    background-color: #ffffffcc; /* Añadimos transparencia para ver el fondo */
   }
-  th, td {
-    padding: 10px;
+
+  table, th, td {
     border: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #ffcc00;
+    padding: 10px;
     text-align: left;
   }
-  th {
-    background-color: #ff6f3c;
-    color: white;
+
+  td {
+    padding: 10px;
+    text-align: left;
+    vertical-align: middle;
   }
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  .icon {
-    width: 20px; /* Adjust as necessary */
-    cursor: pointer;
-  }
-  .add-btn {
-    display: inline-block;
-    width: 30px; /* Adjust as necessary */
-    height: 30px; /* Adjust as necessary */
-    background-image: url('path_to_your_add_icon.png'); /* Replace with your actual add icon image path */
-    background-size: cover;
+
+  .icon-btn {
+    background: none;
     border: none;
     cursor: pointer;
+  }
+
+  .icon-btn img {
+    width: 24px; /* Ajusta el tamaño según sea necesario */
+    height: 24px; /* Ajusta el tamaño según sea necesario */
+  }
+
+  .add-button {
+    background-color: #4CAF50; /* Color para el botón Agregar */
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%; /* Botón redondo */
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  @media (max-width: 768px) {
+    .table-container {
+      padding: 0;
+    }
+
+    .navbar {
+      flex-direction: column;
+    }
+
+    .navbar .search-bar {
+      width: 100%;
+    }
+
+    .navbar input[type="search"] {
+      width: calc(100% - 40px);
+      margin: 10px 0;
+    }
   }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div>
-      <h1>MACRA</h1>
-      <h2>Administrador usuarios</h2>
+<div class="navbar">
+    <span class="logo">MACRA         USUARIOS</span>
+    <div class="search-bar">
+        <input type="search" placeholder="BUSCA TU USUARIO">
+        <button class="icon-btn">
+            <img src="buscar.png" alt="Buscar">
+        </button>
+        <button class="icon-btn">
+            <img src="cerrar-sesion.png" alt="Cerrar sesión">
+        </button>
     </div>
-    <div class="search-container">
-      <input type="text" placeholder="BUSCA TU USUARIO">
-      <button>🔍</button>
-    </div>
-  </header>
-  <table>
-    <thead>
-      <tr>
-        <th>Id_usuario</th>
-        <th>Nombre</th>
-        <th>Apellidos</th>
-        <th>Rol</th>
-        <th>Correo</th>
-        <th>Contraseña</th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-        <th>Guardar</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Example user row -->
-      <tr>
-        <td>1</td>
-        <td>Cecilia</td>
-        <td>Rodriguez Altamirano</td>
-        <td>Administrador</td>
-        <td>cecilia.rodrigu@example.com</td>
-        <td>Cecy123</td>
-        <td><img src="path_to_your_edit_icon.png" alt="Edit" class="icon"></td>
-        <td><img src="path_to_your_delete_icon.png" alt="Delete" class="icon"></td>
-        <td><img src="path_to_your_save_icon.png" alt="Save" class="icon"></td>
-      </tr>
-      <!-- Add more rows as needed -->
-    </tbody>
-  </table>
 </div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Id_usuario</th>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Correo</th>
+                <th>Contraseña</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+                <th>Guardar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Sustituir con datos de la base de datos -->
+            <tr>
+                <td>1</td>
+                <td>Cecilia</td>
+                <td>Administrador</td>
+                <td>cecilia.rodriguez@macra.com</td>
+                <td>Cecy123</td>
+                <td><button class="icon-btn"><img src="editar.png" alt="Editar"></button></td>
+                <td><button class="icon-btn"><img src="eliminar.png" alt="Eliminar"></button></td>
+                <td><button class="icon-btn"><img src="guardar.png" alt="Guardar"></button></td>
+            </tr>
+            <!-- Repetir para cada usuario -->
+        </tbody>
+    </table>
+</div>
+
+<button class="add-button">+</button>
+
 </body>
 </html>
