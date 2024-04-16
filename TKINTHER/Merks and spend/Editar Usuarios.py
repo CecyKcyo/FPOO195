@@ -9,8 +9,9 @@ objControlador = Controlador()
 # Función que se llamará al presionar el botón de guardar usuario.
 
 def ejecutaActualizar():
-    objControlador.actualizarUsuario(nombre_entry.get(), contraseña_entry .get(), departamento_entry.get())
+    objControlador.actualizarUsuario(id_entry.get(), nombre_entry.get(), contraseña_entry.get(), departamento_entry.get())
 
+      # Actualiza la lista de usuarios en la pestaña de consulta
 
 def load_image(file_name, width, height):
     try:
@@ -32,26 +33,31 @@ main_frame.pack(padx=20, pady=20)
 titulo_label = ttk.Label(main_frame, text="Editar Usuario", font=("Helvetica", 16, "bold"))
 titulo_label.grid(row=0, column=0, columnspan=2, pady=10)
 
+id_label = ttk.Label(main_frame, text="Ingresa el Id a editar:")
+id_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+id_entry = ttk.Entry(main_frame)
+id_entry.grid(row=1, column=1, padx=5, pady=5)
+
 # Texto e ingreso de Nombre
-nombre_label = ttk.Label(main_frame, text="Nombre(s):")
-nombre_label.grid(row=1, column=0, padx=5, pady=5, sticky="w")
+nombre_label = ttk.Label(main_frame, text="Nuevo nombre(s):")
+nombre_label.grid(row=4, column=0, padx=5, pady=5, sticky="w")
 nombre_entry = ttk.Entry(main_frame)
-nombre_entry.grid(row=1, column=1, padx=5, pady=5)
+nombre_entry.grid(row=4, column=1, padx=5, pady=5)
 
 
 
 
 # Texto e ingreso de Contraseña
 contraseña_label = ttk.Label(main_frame, text="Contraseña:")
-contraseña_label.grid(row=4, column=0, padx=5, pady=5, sticky="w")
+contraseña_label.grid(row=5, column=0, padx=5, pady=5, sticky="w")
 contraseña_entry = ttk.Entry(main_frame)
-contraseña_entry.grid(row=4, column=1, padx=5, pady=5)
+contraseña_entry.grid(row=5, column=1, padx=5, pady=5)
 
 # Texto e ingreso de departamento
 departamento_label = ttk.Label(main_frame, text="departamento:")
-departamento_label.grid(row=5, column=0, padx=5, pady=5, sticky="w")
+departamento_label.grid(row=6, column=0, padx=5, pady=5, sticky="w")
 departamento_entry = ttk.Entry(main_frame)
-departamento_entry.grid(row=5, column=1, padx=5, pady=5)
+departamento_entry.grid(row=6, column=1, padx=5, pady=5)
 
 
 

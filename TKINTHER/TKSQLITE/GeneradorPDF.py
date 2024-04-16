@@ -1,5 +1,6 @@
 from fpdf import FPDF
 from Controlador import *
+import sqlite3
 objControl2=Controlador()
 
 class GeneradorPDF(FPDF):

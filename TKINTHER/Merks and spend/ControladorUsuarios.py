@@ -58,7 +58,7 @@ class Controlador:
         conexion = self.conexion()
         cursor = conexion.cursor()
         # Preparar la sentencia SQL para seleccionar el usuario por ID
-        sqlconsulta = "SELECT id, nombre, contrasena, departamento FROM usuarios WHERE id = ?"
+        sqlconsulta = "SELECT id, nombre, departamento FROM usuarios WHERE id = ?"
         cursor.execute(sqlconsulta, (id,))
         # Obtener el primer resultado, el fetchone retorna un registro 
         usuario = cursor.fetchone()
